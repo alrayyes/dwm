@@ -13,7 +13,8 @@ depends=('libx11' 'libxinerama' 'libxft' 'freetype2' 'st' 'dmenu' 'nerd-fonts-so
 install=dwm.install
 
 _patches=("https://dwm.suckless.org/patches/alpha/dwm-alpha-6.1.diff"
-          "https://dwm.suckless.org/patches/activetagindicatorbar/dwm-activetagindicatorbar-6.1.diff")
+        "https://dwm.suckless.org/patches/activetagindicatorbar/dwm-activetagindicatorbar-6.1.diff"
+        "https://dwm.suckless.org/patches/noborder/dwm-noborder-6.1.diff")
 
 source=(http://dl.suckless.org/dwm/dwm-$pkgver.tar.gz
 	config.h
@@ -24,7 +25,8 @@ md5sums=('f0b6b1093b7207f89c2a90b848c008ec'
          'e1a6e5202ef2c9a0d338a63f9464b656'
          '939f403a71b6e85261d09fc3412269ee'
          'e6858ff16b9eb1d7fa42a96b59847395'
-         '4c0b9919df89804a4b344c1405757019')
+         '4c0b9919df89804a4b344c1405757019'
+         '7e25b6da25308c899d2ac6eb322cc69d')
 
 prepare() {
   cd $srcdir/$pkgname-$pkgver
