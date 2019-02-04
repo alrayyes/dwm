@@ -20,7 +20,7 @@ source=(http://dl.suckless.org/dwm/dwm-$pkgver.tar.gz
 	"${_patches[@]}")
 
 md5sums=('f0b6b1093b7207f89c2a90b848c008ec'
-         '3ed0d1344db3d607eb0f9bcacbc2850c'
+         '17784c9b18ed1083bbbb7e3802568e5b'
          '939f403a71b6e85261d09fc3412269ee'
          'e6858ff16b9eb1d7fa42a96b59847395')
 
