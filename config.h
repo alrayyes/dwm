@@ -2,9 +2,9 @@
 
 /* appearance */
 static const char *fonts[] = {
-	"monospace:size=10"
+    "SauceCodePro Nerd Font Mono:style=Regular:pixelsize=18:antialias=true:autohint=true"
 };
-static const char dmenufont[]       = "monospace:size=10";
+static const char dmenufont[]       = "SauceCodePro Nerd Font Mono:style=Regular:pixelsize=18:antialias=true:autohint=true";
 static const char normbordercolor[] = "#444444";
 static const char normbgcolor[]     = "#222222";
 static const char normfgcolor[]     = "#bbbbbb";
