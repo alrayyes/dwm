@@ -1,7 +1,5 @@
 # $Id$
-# Maintainer: Sergej Pupykin <pupykin.s+arch@gmail.com>
-# Contributor: Dag Odenhall <dag.odenhall@gmail.com>
-# Contributor: Grigorios Bouzakis <grbzks@gmail.com>
+# Maintainer: Ryan Kes <alrayyes@gmail.com> 
 
 pkgname=dwm
 pkgver=6.1
