@@ -13,15 +13,27 @@ license=('MIT')
 options=(zipman)
 depends=('libx11' 'libxinerama' 'libxft' 'freetype2' 'st' 'dmenu')
 install=dwm.install
+
+_patches=("https://dwm.suckless.org/patches/alpha/dwm-alpha-6.1.diff")
+
 source=(http://dl.suckless.org/dwm/dwm-$pkgver.tar.gz
 	config.h
-	dwm.desktop)
+	dwm.desktop
+	"${_patches[@]}")
+
 md5sums=('f0b6b1093b7207f89c2a90b848c008ec'
-         '80c4ef2a3eca0fe2d14e2203e3833200'
-         '939f403a71b6e85261d09fc3412269ee')
+         'fcc09a7d94b4b3be21444ca54f9d2bdc'
+         '939f403a71b6e85261d09fc3412269ee'
+         'e6858ff16b9eb1d7fa42a96b59847395')
 
 prepare() {
   cd $srcdir/$pkgname-$pkgver
+  
+  for patch in "${_patches[@]}"; do
+    echo "Applying patch $(basename $patch)..."
+    patch -Np1 -i "$srcdir/$(basename $patch)"
+  done
+
   cp $srcdir/config.h config.h
 }
 
