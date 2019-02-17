@@ -3,7 +3,7 @@
 
 pkgname=dwm
 pkgver=6.2
-pkgrel=3
+pkgrel=1
 pkgdesc="A dynamic window manager for X"
 url="http://dwm.suckless.org"
 arch=('i686' 'x86_64')
@@ -13,8 +13,8 @@ depends=('libx11' 'libxinerama' 'libxft' 'freetype2' 'st' 'dmenu' 'nerd-fonts-so
 install=dwm.install
 
 _patches=(
+        "https://dwm.suckless.org/patches/systray/dwm-systray-20180314-3bd8466.diff"
         "https://dwm.suckless.org/patches/noborder/dwm-noborder-20170207-bb3bd6f.diff"
-        "https://dwm.suckless.org/patches/alpha/dwm-alpha-20180613-b69c870.diff"
         )
 
 source=(http://dl.suckless.org/dwm/dwm-$pkgver.tar.gz
@@ -23,10 +23,10 @@ source=(http://dl.suckless.org/dwm/dwm-$pkgver.tar.gz
 	"${_patches[@]}")
 
 md5sums=('9929845ccdec4d2cc191f16210dd7f3d'
-         '40309255ec6aeadeb8075f41f6e2e085'
+         '8c46375a39600b69954298febfdff020'
          '939f403a71b6e85261d09fc3412269ee'
-         'fbb786263f2d714b18368ff64779d669'
-         '4e5893e04c443530168223639c97bc47')
+         '2c19f1a3db59e158c45483668f4cee24'
+         'fbb786263f2d714b18368ff64779d669')
 
 prepare() {
   cd $srcdir/$pkgname-$pkgver
