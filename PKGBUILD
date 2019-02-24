@@ -20,6 +20,7 @@ _patches=(
         "https://dwm.suckless.org/patches/cyclelayouts/dwm-cyclelayouts-20180524-6.2.diff"
         "https://dwm.suckless.org/patches/gridmode/dwm-gridmode-20170909-ceac8c9.diff"
         "https://dwm.suckless.org/patches/selfrestart/dwm-r1615-selfrestart.diff"
+        #"local-dwm-ewmhtags-20180101-db22360.diff"
         )
 
 source=(http://dl.suckless.org/dwm/dwm-$pkgver.tar.gz
