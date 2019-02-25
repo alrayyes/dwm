@@ -21,6 +21,7 @@ _patches=(
         "https://dwm.suckless.org/patches/gridmode/dwm-gridmode-20170909-ceac8c9.diff"
         "https://dwm.suckless.org/patches/selfrestart/dwm-r1615-selfrestart.diff"
         "local-hide_vacant_tags-git-20160626-7af4d43.diff"
+        "local-statuscolors-20181008-b69c870.diff"
         )
 
 source=(http://dl.suckless.org/dwm/dwm-$pkgver.tar.gz
@@ -29,7 +30,7 @@ source=(http://dl.suckless.org/dwm/dwm-$pkgver.tar.gz
 	"${_patches[@]}")
 
 md5sums=('9929845ccdec4d2cc191f16210dd7f3d'
-         'ecec97229adfaa98ebeb99b0e45df173'
+         '1ab8724d280adc82681e481b11d410dd'
          '939f403a71b6e85261d09fc3412269ee'
          '2c19f1a3db59e158c45483668f4cee24'
          'fbb786263f2d714b18368ff64779d669'
@@ -38,7 +39,8 @@ md5sums=('9929845ccdec4d2cc191f16210dd7f3d'
          '5baffd8c124095d06b133e9b31a854b2'
          '6055775113fd4dc06200bc6aaafb72fb'
          'aa3d5f3c45057a2a6ee73aede3fc218a'
-         '032fb87c8c13fae43433c098d44b9070')
+         'd2781ac29048fc50e42e0f11e6cf7bce'
+         'c5469c1457955a8447e05ec5118b3ce6')
 
 prepare() {
   cd $srcdir/$pkgname-$pkgver
