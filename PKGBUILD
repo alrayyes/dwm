@@ -20,7 +20,7 @@ _patches=(
         "https://dwm.suckless.org/patches/cyclelayouts/dwm-cyclelayouts-20180524-6.2.diff"
         "https://dwm.suckless.org/patches/gridmode/dwm-gridmode-20170909-ceac8c9.diff"
         "https://dwm.suckless.org/patches/selfrestart/dwm-r1615-selfrestart.diff"
-        #"local-dwm-ewmhtags-20180101-db22360.diff"
+        "local-hide_vacant_tags-git-20160626-7af4d43.diff"
         )
 
 source=(http://dl.suckless.org/dwm/dwm-$pkgver.tar.gz
@@ -37,7 +37,8 @@ md5sums=('9929845ccdec4d2cc191f16210dd7f3d'
          '46ff022e2a2c6139e71399eb19d1aebb'
          '5baffd8c124095d06b133e9b31a854b2'
          '6055775113fd4dc06200bc6aaafb72fb'
-         'aa3d5f3c45057a2a6ee73aede3fc218a')
+         'aa3d5f3c45057a2a6ee73aede3fc218a'
+         '032fb87c8c13fae43433c098d44b9070')
 
 prepare() {
   cd $srcdir/$pkgname-$pkgver
