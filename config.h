@@ -20,12 +20,47 @@ static const char col_black[]       = "#000000";
 static const char col_red[]         = "#ff0000";
 static const char col_yellow[]      = "#ffff00";
 static const char col_white[]       = "#ffffff";
+static const char status_white[]    = "#dddddd";
+static const char status_black[]    = "#AF875F";
 static const char *colors[][3]      = {
 	/*					fg         bg          border   */
 	[SchemeNorm] =	 { col_gray3, col_gray1,  col_gray2 },
 	[SchemeSel]  =	 { col_gray4, col_cyan,   col_cyan },
 	[SchemeWarn] =	 { col_black, col_yellow, col_red },
 	[SchemeUrgent]=	 { col_white, col_red,    col_red },
+	{ "#404040", col_gray1,  col_gray1 },       /* bar 1 seperator */
+	{ status_black, "#404040",  "#404040" },       /* bar 1 */
+	{ "#E84F4F", "#404040",  "#404040" },       /* bar 2 seperator */
+	{ status_black, "#E84F4F",  "#E84F4F" },       /* bar 2 */
+	{ "#B8D68C", "#E84F4F",  "#E84F4F" },       /* bar 3 seperator */
+	{ status_black, "#B8D68C",  "#B8D68C" },       /* bar 3 */
+	{ "#E1AA5D", "#B8D68C",  "#B8D68C" },       /* bar 4 seperator */
+	{ status_black, "#E1AA5D",  "#E1AA5D" },       /* bar 4 */
+	{ "#7DC1CF", "#E1AA5D",  "#E1AA5D" },       /* bar 5 seperator */
+	{ status_black, "#7DC1CF",  "#7DC1CF" },       /* bar 5 */
+	{ "#9B64FB", "#7DC1CF",  "#7DC1CF" },       /* bar 6 seperator */
+	{ status_black, "#9B64FB",  "#9B64FB" },       /* bar 6 */
+	{ "#6D878D", "#9B64FB",  "#9B64FB" },       /* bar 7 seperator */
+	{ status_black, "#6D878D",  "#6D878D" },       /* bar 7 */
+	{ "#dddddd", "#6D878D",  "#6D878D" },       /* bar 8 seperator */
+	{ status_black, "#dddddd",  "#dddddd" },       /* bar 8 */
+	{ "#404040", "#dddddd",  "#dddddd" },       /* bar 9 seperator */
+	{ status_black, "#404040",  "#404040" },       /* bar 9 */
+	{ "#D23D3D", "#404040",  "#404040" },       /* bar 10 seperator */
+	{ status_black, "#D23D3D",  "#D23D3D" },       /* bar 10 */
+	{ "#A0CF5D", "#D23D3D",  "#D23D3D" },       /* bar 11 seperator */
+	{ status_black, "#A0CF5D",  "#A0CF5D" },       /* bar 11 */
+	{ "#F39D21", "#A0CF5D",  "#A0CF5D" },       /* bar 12 seperator */
+	{ status_black, "#F39D21",  "#F39D21" },       /* bar 12 */
+	{ "#4E9FB1", "#F39D21",  "#F39D21" },       /* bar 13 seperator */
+	{ status_black, "#4E9FB1",  "#4E9FB1" },       /* bar 13 */
+	//{ "#8542FF", "#4E9FB1",  "#4E9FB1" },       /* bar 14 seperator */
+	//{ status_black, "#8542FF",  "#8542FF" },       /* bar 14 */
+	//{ "#42717B", "#8542FF",  "#8542FF" },       /* bar 15 seperator */
+	//{ status_black, "#42717B",  "#42717B" },       /* bar 15 */
+	//{ "#dddddd", "#42717B",  "#42717B" },       /* bar 16 seperator */
+	//{ status_black, "#dddddd",  "#dddddd" },       /* bar 16 */
+
 };
 
 /* tagging */
