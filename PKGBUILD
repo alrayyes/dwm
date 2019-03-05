@@ -22,6 +22,7 @@ _patches=(
         "https://dwm.suckless.org/patches/selfrestart/dwm-r1615-selfrestart.diff"
         "local-hide_vacant_tags-git-20160626-7af4d43.diff"
         "local-statuscolors-20181008-b69c870.diff"
+        "local-fancybar-2019018-b69c870.diff"
         )
 
 source=(http://dl.suckless.org/dwm/dwm-$pkgver.tar.gz
@@ -40,7 +41,8 @@ md5sums=('9929845ccdec4d2cc191f16210dd7f3d'
          '6055775113fd4dc06200bc6aaafb72fb'
          'aa3d5f3c45057a2a6ee73aede3fc218a'
          'd2781ac29048fc50e42e0f11e6cf7bce'
-         'c5469c1457955a8447e05ec5118b3ce6')
+         'c5469c1457955a8447e05ec5118b3ce6'
+         '77e3bfab2270dde73caf4e1b14566386')
 
 prepare() {
   cd $srcdir/$pkgname-$pkgver
