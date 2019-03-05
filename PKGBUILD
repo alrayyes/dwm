@@ -23,6 +23,7 @@ _patches=(
         "local-hide_vacant_tags-git-20160626-7af4d43.diff"
         "local-statuscolors-20181008-b69c870.diff"
         "local-fancybar-2019018-b69c870.diff"
+        "local-scratchpad-20170207-bb3bd6f.diff"
         )
 
 source=(http://dl.suckless.org/dwm/dwm-$pkgver.tar.gz
@@ -31,7 +32,7 @@ source=(http://dl.suckless.org/dwm/dwm-$pkgver.tar.gz
 	"${_patches[@]}")
 
 md5sums=('9929845ccdec4d2cc191f16210dd7f3d'
-         'ad8b5866ac139c7ca7ee050b56799c3c'
+         '80b0fe720d05a2c2b0c5ee6c8baaf45d'
          '939f403a71b6e85261d09fc3412269ee'
          '2c19f1a3db59e158c45483668f4cee24'
          'fbb786263f2d714b18368ff64779d669'
@@ -42,7 +43,8 @@ md5sums=('9929845ccdec4d2cc191f16210dd7f3d'
          'aa3d5f3c45057a2a6ee73aede3fc218a'
          'd2781ac29048fc50e42e0f11e6cf7bce'
          'c5469c1457955a8447e05ec5118b3ce6'
-         '77e3bfab2270dde73caf4e1b14566386')
+         '77e3bfab2270dde73caf4e1b14566386'
+         '7381051e12596394791092f0d39a2dd2')
 
 prepare() {
   cd $srcdir/$pkgname-$pkgver
