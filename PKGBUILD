@@ -24,6 +24,7 @@ _patches=(
         "local-statuscolors-20181008-b69c870.diff"
 #        "local-fancybar-2019018-b69c870.diff"
         "local-scratchpad-20170207-bb3bd6f.diff"
+        "local-notitle-6.2.diff"
         )
 
 source=(http://dl.suckless.org/dwm/dwm-$pkgver.tar.gz
@@ -32,7 +33,7 @@ source=(http://dl.suckless.org/dwm/dwm-$pkgver.tar.gz
 	"${_patches[@]}")
 
 md5sums=('9929845ccdec4d2cc191f16210dd7f3d'
-         '80b0fe720d05a2c2b0c5ee6c8baaf45d'
+         '255e4ca8ee222687c2699873cb742be7'
          '939f403a71b6e85261d09fc3412269ee'
          '2c19f1a3db59e158c45483668f4cee24'
          'fbb786263f2d714b18368ff64779d669'
@@ -43,7 +44,8 @@ md5sums=('9929845ccdec4d2cc191f16210dd7f3d'
          'aa3d5f3c45057a2a6ee73aede3fc218a'
          'd2781ac29048fc50e42e0f11e6cf7bce'
          'c5469c1457955a8447e05ec5118b3ce6'
-         '7381051e12596394791092f0d39a2dd2')
+         '7381051e12596394791092f0d39a2dd2'
+         'd14e0938455073391cdcd3ccad083150')
 
 prepare() {
   cd $srcdir/$pkgname-$pkgver
