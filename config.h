@@ -22,6 +22,8 @@ static const char col_yellow[]      = "#ffff00";
 static const char col_white[]       = "#ffffff";
 static const char status_white[]    = "#dddddd";
 static const char status_black[]    = "#000";
+static const unsigned int baralpha = 0xd0;
+static const unsigned int borderalpha = OPAQUE;
 static const char *colors[][3]      = {
 	/*					fg         bg          border   */
 	[SchemeNorm] =	 { col_gray3, col_gray1,  col_gray2 },
@@ -60,7 +62,39 @@ static const char *colors[][3]      = {
 	//{ status_black, "#42717B",  "#42717B" },       /* bar 15 */
 	//{ "#dddddd", "#42717B",  "#42717B" },       /* bar 16 seperator */
 	//{ status_black, "#dddddd",  "#dddddd" },       /* bar 16 */
-
+};
+static const unsigned int alphas[][3]      = {
+	/*               fg      bg        border     */
+	[SchemeNorm] = { OPAQUE, baralpha, borderalpha },
+	[SchemeSel]  = { OPAQUE, baralpha, borderalpha },
+	[SchemeWarn]  = { OPAQUE, baralpha, borderalpha },
+	[SchemeUrgent]  = { OPAQUE, baralpha, borderalpha },
+	{ OPAQUE, baralpha, borderalpha }, /* bar 1 seperator */
+	{ OPAQUE, baralpha, borderalpha }, /* bar 1 */
+	{ OPAQUE, baralpha, borderalpha }, /* bar 2 seperator */
+	{ OPAQUE, baralpha, borderalpha },
+	{ OPAQUE, baralpha, borderalpha },
+	{ OPAQUE, baralpha, borderalpha },
+	{ OPAQUE, baralpha, borderalpha },
+	{ OPAQUE, baralpha, borderalpha },
+	{ OPAQUE, baralpha, borderalpha },
+	{ OPAQUE, baralpha, borderalpha },
+	{ OPAQUE, baralpha, borderalpha },
+	{ OPAQUE, baralpha, borderalpha },
+	{ OPAQUE, baralpha, borderalpha },
+	{ OPAQUE, baralpha, borderalpha },
+	{ OPAQUE, baralpha, borderalpha },
+	{ OPAQUE, baralpha, borderalpha },
+	{ OPAQUE, baralpha, borderalpha },
+	{ OPAQUE, baralpha, borderalpha },
+	{ OPAQUE, baralpha, borderalpha },
+	{ OPAQUE, baralpha, borderalpha },
+	{ OPAQUE, baralpha, borderalpha },
+	{ OPAQUE, baralpha, borderalpha },
+	{ OPAQUE, baralpha, borderalpha },
+	{ OPAQUE, baralpha, borderalpha },
+	{ OPAQUE, baralpha, borderalpha },
+	{ OPAQUE, baralpha, borderalpha },
 };
 
 /* tagging */
