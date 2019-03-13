@@ -22,9 +22,9 @@ _patches=(
         "https://dwm.suckless.org/patches/selfrestart/dwm-r1615-selfrestart.diff"
         "local-hide_vacant_tags-git-20160626-7af4d43.diff"
         "local-statuscolors-20181008-b69c870.diff"
-#        "local-fancybar-2019018-b69c870.diff"
+        "local-fancybar-2019018-b69c870.diff"
         "local-scratchpad-20170207-bb3bd6f.diff"
-        "local-notitle-6.2.diff"
+#        "local-notitle-6.2.diff"
         "local-alpha-20180613-b69c870.diff"
         )
 
@@ -45,8 +45,8 @@ md5sums=('9929845ccdec4d2cc191f16210dd7f3d'
          'aa3d5f3c45057a2a6ee73aede3fc218a'
          'd2781ac29048fc50e42e0f11e6cf7bce'
          'c5469c1457955a8447e05ec5118b3ce6'
+         '77e3bfab2270dde73caf4e1b14566386'
          '7381051e12596394791092f0d39a2dd2'
-         '59bff0b3c36cefc00f1dcb7ecc348474'
          '60a545c6661638af619913e2a093ebf8')
 
 prepare() {
