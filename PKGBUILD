@@ -13,13 +13,13 @@ depends=('libx11' 'libxinerama' 'libxft' 'freetype2' 'st' 'dmenu' 'nerd-fonts-so
 install=dwm.install
 
 _patches=(
-        "https://dwm.suckless.org/patches/systray/dwm-systray-20190208-cb3f58a.diff"
-        "https://dwm.suckless.org/patches/noborder/dwm-noborder-20170207-bb3bd6f.diff"
-        "https://dwm.suckless.org/patches/attachaside/dwm-attachaside-20180126-db22360.diff"
-        "https://dwm.suckless.org/patches/autostart/dwm-autostart-20161205-bb3bd6f.diff"
-        "https://dwm.suckless.org/patches/cyclelayouts/dwm-cyclelayouts-20180524-6.2.diff"
-        "https://dwm.suckless.org/patches/gridmode/dwm-gridmode-20170909-ceac8c9.diff"
-        "https://dwm.suckless.org/patches/selfrestart/dwm-r1615-selfrestart.diff"
+        "dwm-systray-20190208-cb3f58a.diff"
+        "dwm-noborder-20170207-bb3bd6f.diff"
+        "dwm-attachaside-20180126-db22360.diff"
+        "dwm-autostart-20161205-bb3bd6f.diff"
+        "dwm-cyclelayouts-20180524-6.2.diff"
+        "dwm-gridmode-20170909-ceac8c9.diff"
+        "dwm-r1615-selfrestart.diff"
         "local-hide_vacant_tags-git-20160626-7af4d43.diff"
         "local-statuscolors-20181008-b69c870.diff"
         "local-fancybar-2019018-b69c870.diff"
