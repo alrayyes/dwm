@@ -150,7 +150,7 @@ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont,
 static const char *termcmd[]  = { "st", NULL };
 static const char scratchpadname[] = "scratchpad";
 static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "120x34", NULL };
-static const char *slockcmd[] = { "slock" };
+static const char *slockcmd[] = { "i3lock", "-e", "-b", "-f", "-i", "/home/alrayyes/.config/lock.png" };
 
 #include "selfrestart.c"
 

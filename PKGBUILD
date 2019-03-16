@@ -9,7 +9,7 @@ url="http://dwm.suckless.org"
 arch=('i686' 'x86_64')
 license=('MIT')
 options=(zipman)
-depends=('libx11' 'libxinerama' 'libxft' 'freetype2' 'st' 'dmenu' 'nerd-fonts-source-code-pro')
+depends=('libx11' 'libxinerama' 'libxft' 'freetype2' 'st' 'dmenu' 'nerd-fonts-source-code-pro' 'i3lock')
 install=dwm.install
 
 _patches=(
@@ -34,7 +34,7 @@ source=(http://dl.suckless.org/dwm/dwm-$pkgver.tar.gz
     "${_patches[@]}")
 
 md5sums=('9929845ccdec4d2cc191f16210dd7f3d'
-         'e7cc322b35264ce8149e03e36737d250'
+         '2fecdfe711455b8f1eae2c18a647ac8c'
          '939f403a71b6e85261d09fc3412269ee'
          '31a7569d7f3d43846f59e854ec5d1da0'
          'fbb786263f2d714b18368ff64779d669'
