@@ -106,14 +106,16 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
-	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
-	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
-	{ "Gpodder",  NULL,       NULL,       1 << 3,       0,           -1 },
-	{ "Spotify",  NULL,       NULL,       1 << 3,       0,           -1 },
-	{ "ncmpcpp",  NULL,       NULL,       1 << 3,       0,           -1 },
-	{ "mutt",     NULL,       NULL,       1 << 5,       0,           -1 },
-	{ "weechat",  NULL,       NULL,       1 << 6,       0,           -1 },
-	{ "Slack",    NULL,       NULL,       1 << 6,       0,           -1 },
+	{ "Syncthing GTK",    NULL,       NULL,        0,            1,           -1 },
+	{ "Toggl Desktop",     NULL,       NULL,        0,            1,           -1 },
+	{ "Gimp",             NULL,       NULL,        0,            1,           -1 },
+	{ "Firefox",          NULL,       NULL,        1 << 8,       0,           -1 },
+	{ "Gpodder",          NULL,       NULL,        1 << 3,       0,           -1 },
+	{ "Spotify",          NULL,       NULL,        1 << 3,       0,           -1 },
+	{ "ncmpcpp",          NULL,       NULL,        1 << 3,       0,           -1 },
+	{ "mutt",             NULL,       NULL,        1 << 5,       0,           -1 },
+	{ "weechat",          NULL,       NULL,        1 << 6,       0,           -1 },
+	{ "Slack",            NULL,       NULL,        1 << 6,       0,           -1 },
 };
 
 /* layout(s) */
