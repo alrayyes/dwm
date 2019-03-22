@@ -31,11 +31,13 @@ _patches=(
 source=(http://dl.suckless.org/dwm/dwm-$pkgver.tar.gz
     config.h
     dwm.desktop
+    lock
     "${_patches[@]}")
 
 md5sums=('9929845ccdec4d2cc191f16210dd7f3d'
          '72c7f3101262b13b337621d9a5a21936'
          '939f403a71b6e85261d09fc3412269ee'
+         '8444c7d7bfca2b3ec5b5f686d7661867'
          '31a7569d7f3d43846f59e854ec5d1da0'
          'fbb786263f2d714b18368ff64779d669'
          'c75af619c04cfae7b9740ec140d1dc6c'
@@ -72,4 +74,7 @@ package() {
   install -m644 -D LICENSE $pkgdir/usr/share/licenses/$pkgname/LICENSE
   install -m644 -D README $pkgdir/usr/share/doc/$pkgname/README
   install -m644 -D $srcdir/dwm.desktop $pkgdir/usr/share/xsessions/dwm.desktop
+  
+  cd ../
+  install -Dm0755 lock "${pkgdir}/usr/bin/lock"
 }
