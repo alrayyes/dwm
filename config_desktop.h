@@ -106,9 +106,9 @@ static const Rule rules[] = {
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "Syncthing GTK",    NULL,       NULL,        0,            1,           -1 },
-	{ "Toggl Desktop",     NULL,       NULL,        0,            1,           -1 },
+	{ "Toggl Desktop",    NULL,       NULL,        0,            1,           -1 },
 	{ "Gimp",             NULL,       NULL,        0,            1,           -1 },
-	{ "Firefox",          NULL,       NULL,        1 << 8,       0,           -1 },
+	{ "Iceweasel",        NULL,       NULL,        1 << 8,       0,           -1 },
 	{ "Gpodder",          NULL,       NULL,        1 << 3,       0,           -1 },
 	{ "Spotify",          NULL,       NULL,        1 << 3,       0,           -1 },
 	{ "ncmpcpp",          NULL,       NULL,        1 << 3,       0,           -1 },
