@@ -9,7 +9,8 @@ url="http://dwm.suckless.org"
 arch=('i686' 'x86_64')
 license=('MIT')
 options=(zipman)
-depends=('libx11' 'libxinerama' 'libxft' 'freetype2' 'st' 'dmenu' 'nerd-fonts-source-code-pro' 'i3lock' 'xautolock' 'xss-lock' 'xbindkeys' 'compton' 'feh' 'unclutter' 'redshift' 'dunst' 'slstatus-git' 'spotify' 'iceweasel' 'tmux' 'scrot' 'pulseaudio' 'xorg-xbacklight' 'yubikey-oath-dmenu' 'pass' 'menu-calc' 'xdotool')
+depends=('libx11' 'libxinerama' 'libxft' 'freetype2' 'st' 'dmenu' 'nerd-fonts-source-code-pro' 'xautolock' 'xss-lock' 'xbindkeys' 'compton' 'feh' 'unclutter' 'redshift' 'dunst' 'slstatus-git' 'spotify' 'iceweasel' 'tmux' 'scrot' 'pulseaudio' 'xorg-xbacklight' 'yubikey-oath-dmenu' 'pass' 'menu-calc' 'xdotool')
+optdepends=('i3lock' 'i3lock-fancy-multimonitor-git')
 install=dwm.install
 
 _patches=(
@@ -37,7 +38,7 @@ source=(http://dl.suckless.org/dwm/dwm-$pkgver.tar.gz
 md5sums=('9929845ccdec4d2cc191f16210dd7f3d'
          'a653a6835f12bf99a2ec36f3e261c8be'
          '939f403a71b6e85261d09fc3412269ee'
-         '8444c7d7bfca2b3ec5b5f686d7661867'
+         '8b2b6c96dbb9e8968a4c52aca2985ee4'
          '31a7569d7f3d43846f59e854ec5d1da0'
          'fbb786263f2d714b18368ff64779d669'
          'c75af619c04cfae7b9740ec140d1dc6c'

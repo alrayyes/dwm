@@ -1,3 +1,10 @@
 #!/bin/sh
 
-i3lock -e -b -f -i ~/.cache/lock.png
+if [ -e /usr/bin/i3lock-fancy ]
+then
+    i3lock-fancy -p -n
+elif [ -e /usr/bin/i3lock ]
+then
+    i3lock -e -b -f -i ~/.cache/lock.png
+
+fi
