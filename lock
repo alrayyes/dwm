@@ -1,10 +1,11 @@
 #!/bin/sh
 
-if [ -e /usr/bin/i3lock-fancy ]
-then
-    i3lock-fancy -p -n
-elif [ -e /usr/bin/i3lock ]
-then
-    i3lock -e -b -f -i ~/.cache/lock.png
+NUMBER_OF_SCREENS="$(xrandr | grep -c '\*')"
 
+if [ "$NUMBER_OF_SCREENS" -gt 1 ]
+then
+    scrot "lock.png" -e 'mv $f ~/.cache/'
+    corrupter ~/.cache/lock.png ~/.cache/lock.png
 fi
+
+i3lock -e -b -f -i ~/.cache/lock.png
