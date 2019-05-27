@@ -4,7 +4,6 @@
 
 + [systray](https://dwm.suckless.org/patches/systray/)
 + [noborder](https://dwm.suckless.org/patches/noborder/)
-+ [attachaside](https://dwm.suckless.org/patches/attachaside)
 + [autostart](https://dwm.suckless.org/patches/autostart/)
 + [cyclelayouts](https://dwm.suckless.org/patches/cyclelayouts/)
 + [gridmode](https://dwm.suckless.org/patches/gridmode/)

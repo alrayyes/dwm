@@ -9,14 +9,13 @@ url="http://dwm.suckless.org"
 arch=('i686' 'x86_64')
 license=('MIT')
 options=(zipman)
-depends=('libx11' 'libxinerama' 'libxft' 'freetype2' 'st' 'dmenu' 'nerd-fonts-source-code-pro' 'xautolock' 'xss-lock' 'xbindkeys' 'compton' 'feh' 'unclutter' 'redshift' 'dunst' 'slstatus-git' 'spotify' 'tmux' 'scrot' 'pulseaudio' 'xorg-xbacklight' 'yubikey-oath-dmenu' 'pass' 'menu-calc' 'xdotool' 'i3lock')
+depends=('libx11' 'libxinerama' 'libxft' 'freetype2' 'st' 'dmenu')
 optdepends=('corrupter')
 install=dwm.install
 
 _patches=(
         "dwm-systray-20190208-cb3f58a.diff"
         "dwm-noborder-20170207-bb3bd6f.diff"
-        "dwm-attachaside-20180126-db22360.diff"
         "dwm-autostart-20161205-bb3bd6f.diff"
         "dwm-cyclelayouts-20180524-6.2.diff"
         "dwm-gridmode-20170909-ceac8c9.diff"
@@ -25,7 +24,6 @@ _patches=(
         "local-statuscolors-20181008-b69c870.diff"
         "local-fancybar-2019018-b69c870.diff"
         "local-scratchpad-20170207-bb3bd6f.diff"
-#        "local-notitle-6.2.diff"
         "local-alpha-20180613-b69c870.diff"
         )
 
@@ -54,7 +52,7 @@ md5sums=('9929845ccdec4d2cc191f16210dd7f3d'
 
 prepare() {
   cd $srcdir/$pkgname-$pkgver
-  sed -i "25 a \ \t{ NULL,       NULL }," "$srcdir/$(basename ${_patches[5]})"
+  sed -i "25 a \ \t{ NULL,       NULL }," "$srcdir/$(basename ${_patches[4]})"
 
   for patch in "${_patches[@]}"; do
     echo "Applying patch $(basename $patch)..."
