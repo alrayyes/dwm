@@ -34,12 +34,11 @@ source=(http://dl.suckless.org/dwm/dwm-$pkgver.tar.gz
     "${_patches[@]}")
 
 md5sums=('9929845ccdec4d2cc191f16210dd7f3d'
-         'a653a6835f12bf99a2ec36f3e261c8be'
+         'dda4ab6363b58a3b8e2cacf7166b6f74'
          '939f403a71b6e85261d09fc3412269ee'
          '10bd3378b4b4aa7a2e4ed8685cea1be6'
          '31a7569d7f3d43846f59e854ec5d1da0'
          'fbb786263f2d714b18368ff64779d669'
-         'c75af619c04cfae7b9740ec140d1dc6c'
          '46ff022e2a2c6139e71399eb19d1aebb'
          '5baffd8c124095d06b133e9b31a854b2'
          '6055775113fd4dc06200bc6aaafb72fb'
