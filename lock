@@ -4,7 +4,7 @@ NUMBER_OF_SCREENS="$(xrandr | grep -c '\*')"
 
 if [ "$NUMBER_OF_SCREENS" -gt 1 ]
 then
-    scrot "lock.png" -e 'mv $f ~/.cache/'
+    maim ~/.cache/lock.png
     corrupter ~/.cache/lock.png ~/.cache/lock.png
 fi
 
