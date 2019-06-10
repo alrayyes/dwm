@@ -10,7 +10,7 @@ arch=('i686' 'x86_64')
 license=('MIT')
 options=(zipman)
 depends=('libx11' 'libxinerama' 'libxft' 'freetype2' 'st' 'dmenu')
-optdepends=('corrupter' 'maim' 'i3lock')
+optdepends=('gllock-git')
 install=dwm.install
 
 _patches=(
@@ -30,13 +30,11 @@ _patches=(
 source=(http://dl.suckless.org/dwm/dwm-$pkgver.tar.gz
     config.h
     dwm.desktop
-    lock
     "${_patches[@]}")
 
 md5sums=('9929845ccdec4d2cc191f16210dd7f3d'
          'dda4ab6363b58a3b8e2cacf7166b6f74'
          '939f403a71b6e85261d09fc3412269ee'
-         '854295322b5149738c02bffcb66fcc37'
          '31a7569d7f3d43846f59e854ec5d1da0'
          'fbb786263f2d714b18368ff64779d669'
          '46ff022e2a2c6139e71399eb19d1aebb'
@@ -72,7 +70,4 @@ package() {
   install -m644 -D LICENSE $pkgdir/usr/share/licenses/$pkgname/LICENSE
   install -m644 -D README $pkgdir/usr/share/doc/$pkgname/README
   install -m644 -D $srcdir/dwm.desktop $pkgdir/usr/share/xsessions/dwm.desktop
-  
-  cd ../
-  install -Dm0755 lock "${pkgdir}/usr/bin/lock"
 }
