@@ -11,7 +11,7 @@ license=('MIT')
 options=(zipman)
 depends=('libx11' 'libxinerama' 'libxft' 'freetype2' 'dmenu')
 optdepends=('gllock-git' 'higherlearning-st')
-conflicts=('dwm' 'dwm-debug')
+conflicts=('dwm')
 install=dwm.install
 
 _patches=(
