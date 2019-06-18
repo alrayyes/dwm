@@ -1,7 +1,7 @@
 # $Id$
 # Maintainer: Ryan Kes <alrayyes@gmail.com> 
 
-pkgname=dwm
+pkgname=higherlearning-dwm
 pkgver=6.2
 pkgrel=1
 pkgdesc="A dynamic window manager for X"
@@ -9,8 +9,9 @@ url="http://dwm.suckless.org"
 arch=('i686' 'x86_64')
 license=('MIT')
 options=(zipman)
-depends=('libx11' 'libxinerama' 'libxft' 'freetype2' 'st' 'dmenu')
-optdepends=('gllock-git')
+depends=('libx11' 'libxinerama' 'libxft' 'freetype2' 'dmenu')
+optdepends=('gllock-git' 'higherlearning-st')
+conflicts=('dwm' 'dwm-debug')
 install=dwm.install
 
 _patches=(
@@ -48,7 +49,7 @@ md5sums=('9929845ccdec4d2cc191f16210dd7f3d'
          '60a545c6661638af619913e2a093ebf8')
 
 prepare() {
-  cd $srcdir/$pkgname-$pkgver
+  cd $srcdir/dwm-$pkgver
   sed -i "25 a \ \t{ NULL,       NULL }," "$srcdir/$(basename ${_patches[4]})"
 
   for patch in "${_patches[@]}"; do
@@ -60,14 +61,14 @@ prepare() {
 }
 
 build() {
-  cd $srcdir/$pkgname-$pkgver
+  cd $srcdir/dwm-$pkgver
   make X11INC=/usr/include/X11 X11LIB=/usr/lib/X11 FREETYPEINC=/usr/include/freetype2
 }
 
 package() {
-  cd $srcdir/$pkgname-$pkgver
+  cd $srcdir/dwm-$pkgver
   make PREFIX=/usr DESTDIR=$pkgdir install
-  install -m644 -D LICENSE $pkgdir/usr/share/licenses/$pkgname/LICENSE
-  install -m644 -D README $pkgdir/usr/share/doc/$pkgname/README
+  install -m644 -D LICENSE $pkgdir/usr/share/licenses/dwm/LICENSE
+  install -m644 -D README $pkgdir/usr/share/doc/dwm/README
   install -m644 -D $srcdir/dwm.desktop $pkgdir/usr/share/xsessions/dwm.desktop
 }
