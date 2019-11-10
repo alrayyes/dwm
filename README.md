@@ -22,7 +22,7 @@ makepkg -si
 
 ## Further Notes
 
-+ Default font is [Sauce Code Pro Nerd Font Mono](https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/SourceCodePro) at 18pt
++ Default font is [Fira Code Nerd Font Mono](https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/FiraCode)
 * When modifying [config.h](https://github.com/alrayyes/dwm/blob/master/config.h) be sure to run ```updpkgsums``` to update checksums before running ```makepkg -si```
 
 ## License
