@@ -1,0 +1,45 @@
+* My DWM Build
+  :PROPERTIES:
+  :CUSTOM_ID: my-dwm-build
+  :END:
+
+[[https://dwm.suckless.org][DWM]] [[https://www.archlinux.org/][Arch]] package with a few patches installed to keep things nice:
+
+- [[https://dwm.suckless.org/patches/systray/][systray]]
+- [[https://dwm.suckless.org/patches/noborder/][noborder]]
+- [[https://dwm.suckless.org/patches/autostart/][autostart]]
+- [[https://dwm.suckless.org/patches/cyclelayouts/][cyclelayouts]]
+- [[https://dwm.suckless.org/patches/gridmode/][gridmode]]
+- [[https://dwm.suckless.org/patches/selfrestart/][selfrestart]]
+- [[https://dwm.suckless.org/patches/hide_vacant_tags/][hide_vacant_tags]]
+- [[https://dwm.suckless.org/patches/statuscolors/][statuscolors]]
+- [[https://dwm.suckless.org/patches/fancybar/][fancybar]]
+- [[https://dwm.suckless.org/patches/scratchpad/][scratchpad]]
+- [[https://dwm.suckless.org/patches/alpha/][alpha]]
+
+** Installation
+   :PROPERTIES:
+   :CUSTOM_ID: installation
+   :END:
+
+#+BEGIN_EXAMPLE shell
+  makepkg -si
+#+END_EXAMPLE
+
+** Further Notes
+   :PROPERTIES:
+   :CUSTOM_ID: further-notes
+   :END:
+
+- Default font is
+  [[https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/FiraCode][Fira Code Nerd Font Mono]]
+- When modifying [[https://github.com/alrayyes/dwm/blob/master/config.h][config.h]] be sure to run =updpkgsums= to update checksums before
+  running =makepkg -si=
+
+** License
+   :PROPERTIES:
+   :CUSTOM_ID: license
+   :END:
+
+This theme is released under the MIT License. For more information read
+the [[file:LICENSE.org][license]].
