@@ -25,6 +25,7 @@ _patches=(
         "local-scratchpad-6.2.diff"
         "local-alpha-20201019-61bb8b2.diff"
         "dwm-rotatestack-20161021-ab9571b.diff"
+        "local-statuspadding-20150524-c8e9479.diff"
         )
 
 source=(http://dl.suckless.org/dwm/dwm-$pkgver.tar.gz
@@ -42,9 +43,10 @@ md5sums=('9929845ccdec4d2cc191f16210dd7f3d'
          'ed77898009dea962f66a9dd607729549'
          '8c3ad89cb98dd2b9152075b6e29cb579'
          'c446b71a8b8cce25db86a47805500dfa'
-         '8e7bef8198d212f8c33efbf160b44b87'
+         '595df893d829b2994bb799d12a1c9545'
          '3f50d21e606afd5c8b3c67dbbbb9ea32'
-         '882e0783ccedf9fbb8b565e7681116c9')
+         '882e0783ccedf9fbb8b565e7681116c9'
+         'e08026fd0301284fc59b5652da22e994')
 
 prepare() {
   cd $srcdir/dwm-$pkgver
