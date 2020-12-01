@@ -9,7 +9,7 @@ url="http://dwm.suckless.org"
 arch=('i686' 'x86_64')
 license=('MIT')
 options=(zipman)
-depends=('libx11' 'libxinerama' 'libxft' 'freetype2' 'dmenu')
+depends=('libx11' 'libxinerama' 'libxft' 'freetype2' 'dmenu' 'ttf-jetbrains-mono' 'ttf-joypixels')
 optdepends=('gllock-git' 'higherlearning-st')
 conflicts=('dwm')
 install=dwm.install
@@ -32,7 +32,7 @@ source=(http://dl.suckless.org/dwm/dwm-$pkgver.tar.gz
     "${_patches[@]}")
 
 md5sums=('9929845ccdec4d2cc191f16210dd7f3d'
-         '071eefef57eb3362989a4e3501d2de7b'
+         '418abafd90ec84255144dcea538a53fb'
          '939f403a71b6e85261d09fc3412269ee'
          '1dfc635c0f4c4c670beb20cbb7234c0f'
          '453062a348098b240e55f40623f14ed0'
