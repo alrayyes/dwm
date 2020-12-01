@@ -5,15 +5,16 @@
 
 [[https://dwm.suckless.org][DWM]] [[https://www.archlinux.org/][Arch]] package with a few patches installed to keep things nice:
 
-- [[https://dwm.suckless.org/patches/systray/][systray]]
-- [[https://dwm.suckless.org/patches/noborder/][noborder]]
+- [[https://dwm.suckless.org/patches/alpha/][alpha]]
 - [[https://dwm.suckless.org/patches/autostart/][autostart]]
 - [[https://dwm.suckless.org/patches/cyclelayouts/][cyclelayouts]]
 - [[https://dwm.suckless.org/patches/gridmode/][gridmode]]
-- [[https://dwm.suckless.org/patches/selfrestart/][selfrestart]]
 - [[https://dwm.suckless.org/patches/hide_vacant_tags/][hide_vacant_tags]]
+- [[https://dwm.suckless.org/patches/noborder/][noborder]]
+- [[https://dwm.suckless.org/patches/rotatestack/][rotatestack]]
 - [[https://dwm.suckless.org/patches/scratchpad/][scratchpad]]
-- [[https://dwm.suckless.org/patches/alpha/][alpha]]
+- [[https://dwm.suckless.org/patches/selfrestart/][selfrestart]]
+- [[https://dwm.suckless.org/patches/systray/][systray]]
 
 ** Installation
 #+BEGIN_EXAMPLE shell
