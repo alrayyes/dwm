@@ -1,5 +1,5 @@
 # $Id$
-# Maintainer: Ryan Kes <alrayyes@gmail.com> 
+# Maintainer: Ryan Kes <ryan@ryankes.eu>
 
 pkgname=higherlearning-dwm
 pkgver=6.2
@@ -9,23 +9,21 @@ url="http://dwm.suckless.org"
 arch=('i686' 'x86_64')
 license=('MIT')
 options=(zipman)
-depends=('libx11' 'libxinerama' 'libxft' 'freetype2' 'dmenu' 'otf-nerd-fonts-fira-code')
+depends=('libx11' 'libxinerama' 'libxft' 'freetype2' 'dmenu')
 optdepends=('gllock-git' 'higherlearning-st')
 conflicts=('dwm')
 install=dwm.install
 
 _patches=(
-        "dwm-systray-20190208-cb3f58a.diff"
-        "dwm-noborder-20170207-bb3bd6f.diff"
-        "dwm-autostart-20161205-bb3bd6f.diff"
+        "dwm-systray-6.2.diff"
+        "dwm-noborder-6.2.diff"
+        "local-autostart-20200610-cb3f58a.diff"
         "dwm-cyclelayouts-20180524-6.2.diff"
-        "dwm-gridmode-20170909-ceac8c9.diff"
-        "dwm-r1615-selfrestart.diff"
-        "local-hide_vacant_tags-git-20160626-7af4d43.diff"
-        "local-statuscolors-20181008-b69c870.diff"
-        "local-fancybar-2019018-b69c870.diff"
-        "local-scratchpad-20170207-bb3bd6f.diff"
-        "local-alpha-20180613-b69c870.diff"
+        "local-gridmode-20170909-ceac8c9.diff"
+        "local-r1615-selfrestart.diff"
+        "dwm-hide_vacant_tags-6.2.diff"
+        "local-scratchpad-6.2.diff"
+        "local-alpha-20201019-61bb8b2.diff"
         )
 
 source=(http://dl.suckless.org/dwm/dwm-$pkgver.tar.gz
@@ -34,23 +32,21 @@ source=(http://dl.suckless.org/dwm/dwm-$pkgver.tar.gz
     "${_patches[@]}")
 
 md5sums=('9929845ccdec4d2cc191f16210dd7f3d'
-         '598fcb5275d7f036807765370b5a226d'
+         '071eefef57eb3362989a4e3501d2de7b'
          '939f403a71b6e85261d09fc3412269ee'
-         '31a7569d7f3d43846f59e854ec5d1da0'
-         'fbb786263f2d714b18368ff64779d669'
-         '46ff022e2a2c6139e71399eb19d1aebb'
+         '1dfc635c0f4c4c670beb20cbb7234c0f'
+         '453062a348098b240e55f40623f14ed0'
+         '6f1cd0869b315c9ec03d182af6c31ce2'
          '5baffd8c124095d06b133e9b31a854b2'
-         '6055775113fd4dc06200bc6aaafb72fb'
-         'aa3d5f3c45057a2a6ee73aede3fc218a'
-         'd2781ac29048fc50e42e0f11e6cf7bce'
-         'c5469c1457955a8447e05ec5118b3ce6'
-         '77e3bfab2270dde73caf4e1b14566386'
-         '7381051e12596394791092f0d39a2dd2'
-         '60a545c6661638af619913e2a093ebf8')
+         'ed77898009dea962f66a9dd607729549'
+         '8c3ad89cb98dd2b9152075b6e29cb579'
+         'c446b71a8b8cce25db86a47805500dfa'
+         '8e7bef8198d212f8c33efbf160b44b87'
+         '3f50d21e606afd5c8b3c67dbbbb9ea32')
 
 prepare() {
   cd $srcdir/dwm-$pkgver
-  sed -i "25 a \ \t{ NULL,       NULL }," "$srcdir/$(basename ${_patches[4]})"
+  #sed -i "25 a \ \t{ NULL,       NULL }," "$srcdir/$(basename ${_patches[4]})"
 
   for patch in "${_patches[@]}"; do
     echo "Applying patch $(basename $patch)..."

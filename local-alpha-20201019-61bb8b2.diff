@@ -1,19 +1,16 @@
-diff -up a/config.def.h b/config.def.h
---- a/config.def.h
-+++ b/config.def.h
-@@ -20,7 +20,8 @@ static const char col_black[]       = "#
- static const char col_red[]         = "#ff0000";
- static const char col_yellow[]      = "#ffff00";
- static const char col_white[]       = "#ffffff";
--
+diff -up -N a/config.def.h b/config.def.h
+--- a/config.def.h	2020-12-01 10:32:18.704229651 +0100
++++ b/config.def.h	2020-12-01 10:33:45.017561313 +0100
+@@ -16,11 +16,18 @@ static const char col_gray2[]       = "#
+ static const char col_gray3[]       = "#bbbbbb";
+ static const char col_gray4[]       = "#eeeeee";
+ static const char col_cyan[]        = "#005577";
 +static const unsigned int baralpha = 0xd0;
 +static const unsigned int borderalpha = OPAQUE;
  static const char *colors[][3]      = {
- 	/*					fg         bg          border   */
- 	[SchemeNorm] =	 { col_gray3, col_gray1,  col_gray2 },
-@@ -28,6 +29,11 @@ static const char *colors[][3]      = {
- 	[SchemeWarn] =	 { col_black, col_yellow, col_red },
- 	[SchemeUrgent]=	 { col_white, col_red,    col_red },
+ 	/*               fg         bg         border   */
+ 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
+ 	[SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
  };
 +static const unsigned int alphas[][3]      = {
 +	/*               fg      bg        border     */
@@ -23,9 +20,9 @@ diff -up a/config.def.h b/config.def.h
  
  /* tagging */
  static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
-diff -up a/config.mk b/config.mk
---- a/config.mk	2019-02-02 13:55:28.000000000 +0100
-+++ b/config.mk	2019-03-12 18:34:52.780703276 +0100
+diff -up -N a/config.mk b/config.mk
+--- a/config.mk	2020-12-01 10:32:18.704229651 +0100
++++ b/config.mk	2020-12-01 10:34:10.574227241 +0100
 @@ -22,7 +22,7 @@ FREETYPEINC = /usr/include/freetype2
  
  # includes and libs
@@ -35,9 +32,9 @@ diff -up a/config.mk b/config.mk
  
  # flags
  CPPFLAGS = -D_DEFAULT_SOURCE -D_BSD_SOURCE -D_POSIX_C_SOURCE=2 -DVERSION=\"${VERSION}\" ${XINERAMAFLAGS}
-diff -up a/drw.c b/drw.c
---- a/drw.c	2019-02-02 13:55:28.000000000 +0100
-+++ b/drw.c	2019-03-12 18:34:52.780703276 +0100
+diff -up -N a/drw.c b/drw.c
+--- a/drw.c	2020-12-01 10:32:18.704229651 +0100
++++ b/drw.c	2020-12-01 10:38:15.630881362 +0100
 @@ -61,7 +61,7 @@ utf8decode(const char *c, long *u, size_
  }
  
@@ -47,7 +44,7 @@ diff -up a/drw.c b/drw.c
  {
  	Drw *drw = ecalloc(1, sizeof(Drw));
  
-@@ -70,8 +70,14 @@ drw_create(Display *dpy, int screen, Win
+@@ -70,8 +70,11 @@ drw_create(Display *dpy, int screen, Win
  	drw->root = root;
  	drw->w = w;
  	drw->h = h;
@@ -56,15 +53,12 @@ diff -up a/drw.c b/drw.c
 +	drw->visual = visual;
 +	drw->depth = depth;
 +	drw->cmap = cmap;
-+	drw->visual = visual;
-+	drw->depth = depth;
-+	drw->cmap = cmap;
 +	drw->drawable = XCreatePixmap(dpy, root, w, h, depth);
 +	drw->gc = XCreateGC(dpy, drw->drawable, 0, NULL);
  	XSetLineAttributes(dpy, drw->gc, 1, LineSolid, CapButt, JoinMiter);
  
  	return drw;
-@@ -87,7 +93,7 @@ drw_resize(Drw *drw, unsigned int w, uns
+@@ -87,7 +90,7 @@ drw_resize(Drw *drw, unsigned int w, uns
  	drw->h = h;
  	if (drw->drawable)
  		XFreePixmap(drw->dpy, drw->drawable);
@@ -73,7 +67,7 @@ diff -up a/drw.c b/drw.c
  }
  
  void
-@@ -193,21 +199,22 @@ drw_fontset_free(Fnt *font)
+@@ -193,21 +196,22 @@ drw_fontset_free(Fnt *font)
  }
  
  void
@@ -100,7 +94,7 @@ diff -up a/drw.c b/drw.c
  {
  	size_t i;
  	Clr *ret;
-@@ -217,7 +224,7 @@ drw_scm_create(Drw *drw, const char *clr
+@@ -217,7 +221,7 @@ drw_scm_create(Drw *drw, const char *clr
  		return NULL;
  
  	for (i = 0; i < clrcount; i++)
@@ -109,7 +103,7 @@ diff -up a/drw.c b/drw.c
  	return ret;
  }
  
-@@ -273,9 +280,7 @@ drw_text(Drw *drw, int x, int y, unsigne
+@@ -273,9 +277,7 @@ drw_text(Drw *drw, int x, int y, unsigne
  	} else {
  		XSetForeground(drw->dpy, drw->gc, drw->scheme[invert ? ColFg : ColBg].pixel);
  		XFillRectangle(drw->dpy, drw->drawable, drw->gc, x, y, w, h);
@@ -120,9 +114,9 @@ diff -up a/drw.c b/drw.c
  		x += lpad;
  		w -= lpad;
  	}
-diff -up a/drw.h b/drw.h
---- a/drw.h	2019-02-02 13:55:28.000000000 +0100
-+++ b/drw.h	2019-03-12 18:34:52.780703276 +0100
+diff -up -N a/drw.h b/drw.h
+--- a/drw.h	2020-12-01 10:32:18.704229651 +0100
++++ b/drw.h	2020-12-01 10:39:11.374210543 +0100
 @@ -20,6 +20,9 @@ typedef struct {
  	Display *dpy;
  	int screen;
@@ -153,9 +147,9 @@ diff -up a/drw.h b/drw.h
  
  /* Cursor abstraction */
  Cur *drw_cur_create(Drw *drw, int shape);
-diff -up a/dwm.c b/dwm.c
---- a/dwm.c	2019-03-13 09:31:38.313322535 +0100
-+++ b/dwm.c	2019-03-12 18:34:52.780703276 +0100
+diff -up -N a/dwm.c b/dwm.c
+--- a/dwm.c	2020-12-01 10:32:18.704229651 +0100
++++ b/dwm.c	2020-12-01 10:42:35.324191552 +0100
 @@ -58,6 +58,8 @@
  #define TAGMASK                 ((1 << LENGTH(tags)) - 1)
  #define TEXTW(X)                (drw_fontset_getwidth(drw, (X)) + lrpad)
@@ -165,16 +159,7 @@ diff -up a/dwm.c b/dwm.c
  #define SYSTEM_TRAY_REQUEST_DOCK    0
  
  /* XEMBED messages */
-@@ -74,6 +76,8 @@
- #define VERSION_MINOR               0
- #define XEMBED_EMBEDDED_VERSION (VERSION_MAJOR << 16) | VERSION_MINOR
- 
-+#define OPAQUE                  0xffU
-+
- /* enums */
- enum { CurNormal, CurResize, CurMove, CurLast }; /* cursor */
- enum { SchemeNorm, SchemeSel, SchemeWarn, SchemeUrgent }; /* color schemes */
-@@ -272,6 +276,7 @@ static Client *wintosystrayicon(Window w
+@@ -270,6 +272,7 @@ static Client *wintosystrayicon(Window w
  static int xerror(Display *dpy, XErrorEvent *ee);
  static int xerrordummy(Display *dpy, XErrorEvent *ee);
  static int xerrorstart(Display *dpy, XErrorEvent *ee);
@@ -182,7 +167,7 @@ diff -up a/dwm.c b/dwm.c
  static void zoom(const Arg *arg);
  
  /* variables */
-@@ -310,6 +315,11 @@ static Drw *drw;
+@@ -312,6 +315,11 @@ static Drw *drw;
  static Monitor *mons, *selmon;
  static Window root, wmcheckwin;
  
@@ -194,7 +179,7 @@ diff -up a/dwm.c b/dwm.c
  /* configuration, allows nested code to access above variables */
  #include "config.h"
  
-@@ -1786,7 +1796,8 @@ setup(void)
+@@ -1844,7 +1852,8 @@ setup(void)
  	sw = DisplayWidth(dpy, screen);
  	sh = DisplayHeight(dpy, screen);
  	root = RootWindow(dpy, screen);
@@ -204,7 +189,7 @@ diff -up a/dwm.c b/dwm.c
  	if (!drw_fontset_create(drw, fonts, LENGTH(fonts)))
  		die("no fonts could be loaded.");
  	lrpad = drw->fonts->h;
-@@ -1821,7 +1832,7 @@ setup(void)
+@@ -1879,7 +1888,7 @@ setup(void)
  	/* init appearance */
  	scheme = ecalloc(LENGTH(colors), sizeof(Clr *));
  	for (i = 0; i < LENGTH(colors); i++)
@@ -213,7 +198,7 @@ diff -up a/dwm.c b/dwm.c
  	/* init system tray */
  	updatesystray();
  	/* init bars */
-@@ -2098,7 +2109,9 @@ updatebars(void)
+@@ -2157,7 +2166,9 @@ updatebars(void)
  	Monitor *m;
  	XSetWindowAttributes wa = {
  		.override_redirect = True,
@@ -224,7 +209,7 @@ diff -up a/dwm.c b/dwm.c
  		.event_mask = ButtonPressMask|ExposureMask
  	};
  	XClassHint ch = {"dwm", "dwm"};
-@@ -2108,9 +2121,9 @@ updatebars(void)
+@@ -2167,9 +2178,9 @@ updatebars(void)
  		w = m->ww;
  		if (showsystray && m == systraytomon(m))
  			w -= getsystraywidth();
@@ -237,17 +222,7 @@ diff -up a/dwm.c b/dwm.c
  		XDefineCursor(dpy, m->barwin, cursor[CurNormal]->cursor);
  		if (showsystray && m == systraytomon(m))
  			XMapRaised(dpy, systray->win);
-@@ -2403,7 +2416,8 @@ updatesystray(void)
- 	XMapSubwindows(dpy, systray->win);
- 	/* redraw background */
- 	XSetForeground(dpy, drw->gc, scheme[SchemeNorm][ColBg].pixel);
--	XFillRectangle(dpy, systray->win, drw->gc, 0, 0, w, bh);
-+//	XFillRectangle(dpy, systray->win, drw->gc, 0, 0, w, bh);
-+    XFillRectangle(dpy, systray->win, XCreateGC(dpy, root, 0, NULL), 0, 0, w, bh);
- 	XSync(dpy, False);
- }
- 
-@@ -2552,6 +2566,43 @@ systraytomon(Monitor *m) {
+@@ -2610,6 +2621,43 @@ systraytomon(Monitor *m) {
  }
  
  void

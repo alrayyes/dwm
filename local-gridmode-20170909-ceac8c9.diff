@@ -1,19 +1,7 @@
-From b04bb473cf9818277d33a591f7fe2dfae96afaaf Mon Sep 17 00:00:00 2001
-From: Joshua Haase <hahj87@gmail.com>
-Date: Mon, 15 Aug 2016 17:06:18 -0500
-Subject: [PATCH] Apply modified gridmode patch.
-
----
- config.def.h |  3 +++
- layouts.c    | 27 +++++++++++++++++++++++++++
- 2 files changed, 30 insertions(+)
- create mode 100644 layouts.c
-
-diff --git a/config.def.h b/config.def.h
-index a9ac303..30b7c4a 100644
---- a/config.def.h
-+++ b/config.def.h
-@@ -36,11 +36,13 @@ static const float mfact     = 0.55; /* factor of master area size [0.05..0.95]
+diff -up -N a/config.def.h b/config.def.h
+--- a/config.def.h	2020-12-01 10:10:57.007393876 +0100
++++ b/config.def.h	2020-12-01 10:13:17.190767226 +0100
+@@ -40,11 +40,13 @@ static const float mfact     = 0.55; /*
  static const int nmaster     = 1;    /* number of clients in master area */
  static const int resizehints = 1;    /* 1 means respect size hints in tiled resizals */
  
@@ -24,22 +12,25 @@ index a9ac303..30b7c4a 100644
  	{ "><>",      NULL },    /* no layout function means floating behavior */
  	{ "[M]",      monocle },
 +	{ "HHH",      grid },
+ 	{ NULL,       NULL },
  };
  
- /* key definitions */
-@@ -76,6 +78,7 @@ static Key keys[] = {
+@@ -81,6 +83,7 @@ static Key keys[] = {
  	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
  	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
  	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
 +	{ MODKEY,                       XK_g,      setlayout,      {.v = &layouts[3]} },
+ 	{ MODKEY|ControlMask,		XK_comma,  cyclelayout,    {.i = -1 } },
+ 	{ MODKEY|ControlMask,           XK_period, cyclelayout,    {.i = +1 } },
  	{ MODKEY,                       XK_space,  setlayout,      {0} },
- 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
- 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
-diff --git a/layouts.c b/layouts.c
-new file mode 100644
-index 0000000..d26acf3
---- /dev/null
-+++ b/layouts.c
+@@ -119,4 +122,3 @@ static Button buttons[] = {
+ 	{ ClkTagBar,            MODKEY,         Button1,        tag,            {0} },
+ 	{ ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
+ };
+-
+diff -up -N a/layouts.c b/layouts.c
+--- a/layouts.c	1970-01-01 01:00:00.000000000 +0100
++++ b/layouts.c	2020-12-01 10:14:11.740781107 +0100
 @@ -0,0 +1,27 @@
 +void
 +grid(Monitor *m) {
@@ -68,6 +59,3 @@ index 0000000..d26acf3
 +		i++;
 +	}
 +}
--- 
-2.14.1
-

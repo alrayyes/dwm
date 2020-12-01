@@ -1,7 +1,7 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const unsigned int borderpx  = 1;        /* border pixel of windows */
+static const unsigned int borderpx  = 2;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const unsigned int systraypinning = 1;   /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
 static const unsigned int systrayspacing = 2;   /* systray spacing */
@@ -9,7 +9,8 @@ static const int systraypinningfailfirst = 1;   /* 1: if pinning fails, display 
 static const int showsystray        = 1;     /* 0 means no systray */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "FuraCode Nerd Font:style=Regular:pixelsize=14:antialias=true:autohint=true" };
+static const char *fonts[]          = { "Hack Nerd Font Mono:size=10" };
+static const char dmenufont[]       = "Hack Nerd Font Mono:size=10";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
@@ -19,81 +20,19 @@ static const char col_black[]       = "#000000";
 static const char col_red[]         = "#ff0000";
 static const char col_yellow[]      = "#ffff00";
 static const char col_white[]       = "#ffffff";
-static const char status_white[]    = "#dddddd";
-static const char status_black[]    = "#000";
 static const unsigned int baralpha = 0xd0;
 static const unsigned int borderalpha = OPAQUE;
 static const char *colors[][3]      = {
 	/*					fg         bg          border   */
 	[SchemeNorm] =	 { col_gray3, col_gray1,  col_gray2 },
 	[SchemeSel]  =	 { col_gray4, col_cyan,   col_cyan },
-	[SchemeWarn] =	 { col_black, col_yellow, col_red },
-	[SchemeUrgent]=	 { col_white, col_red,    col_red },
-	{ "#404040", col_gray1,  col_gray1 },       /* bar 1 seperator */
-	{ status_black, "#404040",  "#404040" },       /* bar 1 */
-	{ "#E84F4F", "#404040",  "#404040" },       /* bar 2 seperator */
-	{ status_black, "#E84F4F",  "#E84F4F" },       /* bar 2 */
-	{ "#B8D68C", "#E84F4F",  "#E84F4F" },       /* bar 3 seperator */
-	{ status_black, "#B8D68C",  "#B8D68C" },       /* bar 3 */
-	{ "#E1AA5D", "#B8D68C",  "#B8D68C" },       /* bar 4 seperator */
-	{ status_black, "#E1AA5D",  "#E1AA5D" },       /* bar 4 */
-	{ "#7DC1CF", "#E1AA5D",  "#E1AA5D" },       /* bar 5 seperator */
-	{ status_black, "#7DC1CF",  "#7DC1CF" },       /* bar 5 */
-	{ "#9B64FB", "#7DC1CF",  "#7DC1CF" },       /* bar 6 seperator */
-	{ status_black, "#9B64FB",  "#9B64FB" },       /* bar 6 */
-	{ "#6D878D", "#9B64FB",  "#9B64FB" },       /* bar 7 seperator */
-	{ status_black, "#6D878D",  "#6D878D" },       /* bar 7 */
-	{ "#dddddd", "#6D878D",  "#6D878D" },       /* bar 8 seperator */
-	{ status_black, "#dddddd",  "#dddddd" },       /* bar 8 */
-	{ "#404040", "#dddddd",  "#dddddd" },       /* bar 9 seperator */
-	{ status_black, "#404040",  "#404040" },       /* bar 9 */
-	{ "#D23D3D", "#404040",  "#404040" },       /* bar 10 seperator */
-	{ status_black, "#D23D3D",  "#D23D3D" },       /* bar 10 */
-	{ "#A0CF5D", "#D23D3D",  "#D23D3D" },       /* bar 11 seperator */
-	{ status_black, "#A0CF5D",  "#A0CF5D" },       /* bar 11 */
-	{ "#F39D21", "#A0CF5D",  "#A0CF5D" },       /* bar 12 seperator */
-	{ status_black, "#F39D21",  "#F39D21" },       /* bar 12 */
-	{ "#4E9FB1", "#F39D21",  "#F39D21" },       /* bar 13 seperator */
-	{ status_black, "#4E9FB1",  "#4E9FB1" },       /* bar 13 */
-	//{ "#8542FF", "#4E9FB1",  "#4E9FB1" },       /* bar 14 seperator */
-	//{ status_black, "#8542FF",  "#8542FF" },       /* bar 14 */
-	//{ "#42717B", "#8542FF",  "#8542FF" },       /* bar 15 seperator */
-	//{ status_black, "#42717B",  "#42717B" },       /* bar 15 */
-	//{ "#dddddd", "#42717B",  "#42717B" },       /* bar 16 seperator */
-	//{ status_black, "#dddddd",  "#dddddd" },       /* bar 16 */
+	//[SchemeWarn] =	 { col_black, col_yellow, col_red },
+	//[SchemeUrgent]=	 { col_white, col_red,    col_red },
 };
 static const unsigned int alphas[][3]      = {
 	/*               fg      bg        border     */
 	[SchemeNorm] = { OPAQUE, baralpha, borderalpha },
 	[SchemeSel]  = { OPAQUE, baralpha, borderalpha },
-	[SchemeWarn]  = { OPAQUE, baralpha, borderalpha },
-	[SchemeUrgent]  = { OPAQUE, baralpha, borderalpha },
-	{ OPAQUE, baralpha, borderalpha }, /* bar 1 seperator */
-	{ OPAQUE, baralpha, borderalpha }, /* bar 1 */
-	{ OPAQUE, baralpha, borderalpha }, /* bar 2 seperator */
-	{ OPAQUE, baralpha, borderalpha },
-	{ OPAQUE, baralpha, borderalpha },
-	{ OPAQUE, baralpha, borderalpha },
-	{ OPAQUE, baralpha, borderalpha },
-	{ OPAQUE, baralpha, borderalpha },
-	{ OPAQUE, baralpha, borderalpha },
-	{ OPAQUE, baralpha, borderalpha },
-	{ OPAQUE, baralpha, borderalpha },
-	{ OPAQUE, baralpha, borderalpha },
-	{ OPAQUE, baralpha, borderalpha },
-	{ OPAQUE, baralpha, borderalpha },
-	{ OPAQUE, baralpha, borderalpha },
-	{ OPAQUE, baralpha, borderalpha },
-	{ OPAQUE, baralpha, borderalpha },
-	{ OPAQUE, baralpha, borderalpha },
-	{ OPAQUE, baralpha, borderalpha },
-	{ OPAQUE, baralpha, borderalpha },
-	{ OPAQUE, baralpha, borderalpha },
-	{ OPAQUE, baralpha, borderalpha },
-	{ OPAQUE, baralpha, borderalpha },
-	{ OPAQUE, baralpha, borderalpha },
-	{ OPAQUE, baralpha, borderalpha },
-	{ OPAQUE, baralpha, borderalpha },
 };
 
 /* tagging */
@@ -104,17 +43,25 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class      instance    title       tags mask     isfloating   monitor */
-	{ "Syncthing GTK",    NULL,       NULL,        0,            1,           -1 },
-	{ "Toggl Desktop",    NULL,       NULL,        0,            1,           -1 },
-	{ "Gimp",             NULL,       NULL,        0,            1,           -1 },
-	{ "iceweasel",        NULL,       NULL,        1 << 8,       0,           -1 },
-	{ "Gpodder",          NULL,       NULL,        1 << 3,       0,           -1 },
-	{ "Spotify",          NULL,       NULL,        1 << 3,       0,           -1 },
-	{ "ncmpcpp",          NULL,       NULL,        1 << 3,       0,           -1 },
-	{ "mutt",             NULL,       NULL,        1 << 5,       0,           -1 },
-	{ "weechat",          NULL,       NULL,        1 << 6,       0,           -1 },
-	{ "Slack",            NULL,       NULL,        1 << 6,       0,           -1 },
+	/* class                        instance    title       tags mask   isfloating  monitor */
+	{ "Gimp",                       NULL,       NULL,       0,          1,          -1 },
+	{ "Syncthing GTK",              NULL,       NULL,       0,          1,          -1 },
+
+	{ "Brave-browser",              NULL,       NULL,       0,          0,          1 },
+	{ "Firefox",                    NULL,       NULL,       0,          0,          1 },
+	{ "iceweasel",                  NULL,       NULL,       0,          0,          1 },
+
+	{ "Element",                    NULL,       NULL,       1 << 2,     0,          -1 },
+	{ "Element-Nightly",            NULL,       NULL,       1 << 2,     0,          -1 },
+	{ "Slack",                      NULL,       NULL,       1 << 2,     0,          -1 },
+
+	{ "castero",                    NULL,       NULL,       1 << 3,     0,          -1 },
+	{ "Spt",                        NULL,       NULL,       1 << 3,     0,          -1 },
+	{ "Spotify",                    NULL,       NULL,       1 << 3,     0,          -1 },
+
+	{ "jetbrains-webstorm",         NULL,       NULL,       1 << 7,     0,          -1 },
+
+	{ "Emacs",                      NULL,       NULL,       1 << 8,     0,          -1 },
 };
 
 /* layout(s) */
@@ -145,7 +92,7 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "/home/alrayyes/.scripts/dmenu-frequency" };
+static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "st", NULL };
 static const char scratchpadname[] = "scratchpad";
 static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "120x34", NULL };
@@ -154,7 +101,8 @@ static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "120x34
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
-	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
+	//{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
+	//{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_grave,  togglescratch,  {.v = scratchpadcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
@@ -189,7 +137,7 @@ static Key keys[] = {
 	TAGKEYS(                        XK_7,                      6)
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
-	{ MODKEY|ShiftMask,             XK_r,      self_restart,   {0} },
+    { MODKEY|ShiftMask,             XK_r,      self_restart,   {0} },
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
 };
 
@@ -209,4 +157,3 @@ static Button buttons[] = {
 	{ ClkTagBar,            MODKEY,         Button1,        tag,            {0} },
 	{ ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
 };
-
