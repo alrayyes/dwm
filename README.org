@@ -15,7 +15,6 @@
 - [[https://dwm.suckless.org/patches/scratchpad/][scratchpad]]
 - [[https://dwm.suckless.org/patches/selfrestart/][selfrestart]]
 - [[https://dwm.suckless.org/patches/statuspadding/][statuspadding]]
-- [[https://dwm.suckless.org/patches/systray/][systray]]
 - [[https://dwm.suckless.org/patches/uselessgap/][uselessgap]]
 
 ** Installation
