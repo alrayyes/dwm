@@ -15,18 +15,17 @@ conflicts=('dwm')
 install=dwm.install
 
 _patches=(
-        "dwm-systray-6.2.diff"
         "dwm-noborder-6.2.diff"
-        "local-autostart-20200610-cb3f58a.diff"
+        "dwm-autostart-20200610-cb3f58a.diff"
         "dwm-cyclelayouts-20180524-6.2.diff"
         "local-gridmode-20170909-ceac8c9.diff"
         "local-r1615-selfrestart.diff"
         "dwm-hide_vacant_tags-6.2.diff"
         "local-scratchpad-6.2.diff"
-        "local-alpha-20201019-61bb8b2.diff"
         "dwm-rotatestack-20161021-ab9571b.diff"
-        "local-statuspadding-20150524-c8e9479.diff"
+        "dwm-statuspadding-20150524-c8e9479.diff"
         "local-uselessgap-6.2.diff"
+        "local-allow-color-fonts.diff"
         )
 
 source=(http://dl.suckless.org/dwm/dwm-$pkgver.tar.gz
@@ -37,18 +36,17 @@ source=(http://dl.suckless.org/dwm/dwm-$pkgver.tar.gz
 md5sums=('9929845ccdec4d2cc191f16210dd7f3d'
          '418abafd90ec84255144dcea538a53fb'
          '939f403a71b6e85261d09fc3412269ee'
-         '1dfc635c0f4c4c670beb20cbb7234c0f'
          '453062a348098b240e55f40623f14ed0'
-         '6f1cd0869b315c9ec03d182af6c31ce2'
+         '64cc9cc8df63451b660a76c31ca67a34'
          '5baffd8c124095d06b133e9b31a854b2'
-         'ed77898009dea962f66a9dd607729549'
+         '272fdc4d250d3c30750dbe56bb7e9fa5'
          '8c3ad89cb98dd2b9152075b6e29cb579'
          'c446b71a8b8cce25db86a47805500dfa'
          '595df893d829b2994bb799d12a1c9545'
-         '3f50d21e606afd5c8b3c67dbbbb9ea32'
          '882e0783ccedf9fbb8b565e7681116c9'
-         'e08026fd0301284fc59b5652da22e994'
-         'b9c840237160440110fdafc204eff208')
+         'd1f932d25d82eb9aaa589a54d9b4e6c8'
+         'b9c840237160440110fdafc204eff208'
+         'cdf4c9dacfecd8f3aecb5fc8166c4604')
 
 prepare() {
   cd $srcdir/dwm-$pkgver
