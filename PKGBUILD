@@ -30,6 +30,7 @@ _patches=(
         "dwm-statuscmd-signal-6.2.diff"
         "local-xrdb-6.2.diff"
         "local-sticky-20160911-ab9571b.diff"
+        "local-swallow-20200807-b2de9b0.diff"
         )
 
 source=(http://dl.suckless.org/dwm/dwm-$pkgver.tar.gz
@@ -54,7 +55,8 @@ md5sums=('9929845ccdec4d2cc191f16210dd7f3d'
          '7799f60a9e87e4f99e813d158abee15b'
          '6343099cdc9752bc3f4f87e119345b79'
          '3ebe2a57a05e963764c2083916a02677'
-         '1494ebf7135e01101542daa59b7b28ab')
+         '1494ebf7135e01101542daa59b7b28ab'
+         '96e122c7e880177259cf5dbda7e646cb')
 
 prepare() {
   cd $srcdir/dwm-$pkgver

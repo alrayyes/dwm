@@ -4,6 +4,7 @@
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int gappx     = 6;        /* gaps between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
+static const int swallowfloating    = 0;        /* 1 means swallow floating windows by default */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const int horizpadbar        = 2;        /* horizontal padding for statusbar */
@@ -48,25 +49,28 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class                        instance    title       tags mask   isfloating  monitor */
-	{ "Gimp",                       NULL,       NULL,       0,          1,          -1 },
-	{ "Syncthing GTK",              NULL,       NULL,       0,          1,          -1 },
+	/* class                        instance    title               tags mask   isfloating  isterminal  noswallow   monitor */
+	{ "Gimp",                       NULL,       NULL,               0,          1,          0,          0,          -1 },
+	{ "Syncthing GTK",              NULL,       NULL,               0,          1,          0,          0,          -1 },
 
-	{ "Brave-browser",              NULL,       NULL,       0,          0,          1 },
-	{ "Firefox",                    NULL,       NULL,       0,          0,          1 },
-	{ "iceweasel",                  NULL,       NULL,       0,          0,          1 },
+	{ "Brave-browser",              NULL,       NULL,               0,          0,          0,          -1,         1 },
+	{ "Firefox",                    NULL,       NULL,               0,          0,          0,          -1,         1 },
+	{ "iceweasel",                  NULL,       NULL,               0,          0,          0,          -1,         1 },
 
-	{ "Element",                    NULL,       NULL,       1 << 2,     0,          -1 },
-	{ "Element-Nightly",            NULL,       NULL,       1 << 2,     0,          -1 },
-	{ "Slack",                      NULL,       NULL,       1 << 2,     0,          -1 },
+	{ "Element",                    NULL,       NULL,               1 << 2,     0,          0,          -1,         -1 },
+	{ "Element-Nightly",            NULL,       NULL,               1 << 2,     0,          0,          -1,         -1 },
+	{ "Slack",                      NULL,       NULL,               1 << 2,     0,          0,          -1,         -1 },
 
-	{ "castero",                    NULL,       NULL,       1 << 3,     0,          -1 },
-	{ "Spt",                        NULL,       NULL,       1 << 3,     0,          -1 },
-	{ "Spotify",                    NULL,       NULL,       1 << 3,     0,          -1 },
+	{ "castero",                    NULL,       NULL,               1 << 3,     0,          0,          -1,         -1 },
+	{ "Spt",                        NULL,       NULL,               1 << 3,     0,          0,          -1,         -1 },
+	{ "Spotify",                    NULL,       NULL,               1 << 3,     0,          0,          -1,         -1 },
 
-	{ "jetbrains-webstorm",         NULL,       NULL,       1 << 7,     0,          -1 },
+	{ "jetbrains-webstorm",         NULL,       NULL,               1 << 7,     0,          0,          -1,         -1 },
 
-	{ "Emacs",                      NULL,       NULL,       1 << 8,     0,          -1 },
+	{ "Emacs",                      NULL,       NULL,               1 << 8,     0,          0,          -1,         -1 },
+
+	{ "st-256color",                NULL,       NULL,               0,          0,          1,           0,         -1 },
+	{ NULL,                         NULL,       "Event Tester",     0,          0,          0,           1,         -1 }, /* xev */
 };
 
 /* layout(s) */
@@ -129,7 +133,6 @@ static Key keys[] = {
 	{ MODKEY|ControlMask,           XK_period, cyclelayout,    {.i = +1 } },
 	{ MODKEY,                       XK_p,      setlayout,      {0} },
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
-	{ MODKEY,                       XK_s,      togglesticky,   {0} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
 	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
 	{ MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },
