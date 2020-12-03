@@ -17,6 +17,7 @@
 - [[https://dwm.suckless.org/patches/statuscmd/][statuscmd]]
 - [[https://dwm.suckless.org/patches/statuspadding/][statuspadding]]
 - [[https://dwm.suckless.org/patches/uselessgap/][uselessgap]]
+- [[https://dwm.suckless.org/patches/xrdb/][xrdb]]
 
 ** Installation
 #+BEGIN_EXAMPLE shell
