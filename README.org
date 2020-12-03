@@ -16,6 +16,7 @@
 - [[https://dwm.suckless.org/patches/selfrestart/][selfrestart]]
 - [[https://dwm.suckless.org/patches/statuscmd/][statuscmd]]
 - [[https://dwm.suckless.org/patches/statuspadding/][statuspadding]]
+- [[https://dwm.suckless.org/patches/sticky/][sticky]]
 - [[https://dwm.suckless.org/patches/uselessgap/][uselessgap]]
 - [[https://dwm.suckless.org/patches/xrdb/][xrdb]]
 

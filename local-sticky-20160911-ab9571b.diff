@@ -1,0 +1,55 @@
+diff -up -N a/config.def.h b/config.def.h
+--- a/config.def.h	2020-12-03 11:29:07.728007732 +0100
++++ b/config.def.h	2020-12-03 11:29:46.061416879 +0100
+@@ -104,6 +104,7 @@ static Key keys[] = {
+ 	{ MODKEY|ControlMask,           XK_period, cyclelayout,    {.i = +1 } },
+ 	{ MODKEY,                       XK_space,  setlayout,      {0} },
+ 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
++	{ MODKEY,                       XK_s,      togglesticky,   {0} },
+ 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
+ 	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
+ 	{ MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },
+diff -up -N a/dwm.c b/dwm.c
+--- a/dwm.c	2020-12-03 11:29:07.728007732 +0100
++++ b/dwm.c	2020-12-03 11:31:14.767443065 +0100
+@@ -51,7 +51,7 @@
+ #define CLEANMASK(mask)         (mask & ~(numlockmask|LockMask) & (ShiftMask|ControlMask|Mod1Mask|Mod2Mask|Mod3Mask|Mod4Mask|Mod5Mask))
+ #define INTERSECT(x,y,w,h,m)    (MAX(0, MIN((x)+(w),(m)->wx+(m)->ww) - MAX((x),(m)->wx)) \
+                                * MAX(0, MIN((y)+(h),(m)->wy+(m)->wh) - MAX((y),(m)->wy)))
+-#define ISVISIBLE(C)            ((C->tags & C->mon->tagset[C->mon->seltags]))
++#define ISVISIBLE(C)            ((C->tags & C->mon->tagset[C->mon->seltags]) || C->issticky)
+ #define LENGTH(X)               (sizeof X / sizeof X[0])
+ #define MOUSEMASK               (BUTTONMASK|PointerMotionMask)
+ #define WIDTH(X)                ((X)->w + 2 * (X)->bw + gappx)
+@@ -111,7 +111,7 @@ struct Client {
+ 	int basew, baseh, incw, inch, maxw, maxh, minw, minh;
+ 	int bw, oldbw;
+ 	unsigned int tags;
+-	int isfixed, isfloating, isurgent, neverfocus, oldstate, isfullscreen;
++	int isfixed, isfloating, isurgent, neverfocus, oldstate, isfullscreen, issticky;
+ 	Client *next;
+ 	Client *snext;
+ 	Monitor *mon;
+@@ -239,6 +239,7 @@ static void tagmon(const Arg *arg);
+ static void tile(Monitor *);
+ static void togglebar(const Arg *arg);
+ static void togglefloating(const Arg *arg);
++static void togglesticky(const Arg *arg);
+ static void togglescratch(const Arg *arg);
+ static void toggletag(const Arg *arg);
+ static void toggleview(const Arg *arg);
+@@ -2070,6 +2071,14 @@ togglescratch(const Arg *arg)
+ 		spawn(arg);
+ }
+ 
++togglesticky(const Arg *arg)
++{
++	if (!selmon->sel)
++		return;
++	selmon->sel->issticky = !selmon->sel->issticky;
++	arrange(selmon);
++}
++
+ void
+ toggletag(const Arg *arg)
+ {

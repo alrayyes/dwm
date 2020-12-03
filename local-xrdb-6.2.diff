@@ -79,7 +79,6 @@ diff -up -N a/drw.h b/drw.h
  
  /* Cursor abstraction */
  Cur *drw_cur_create(Drw *drw, int shape);
-Binary files a/dwm and b/dwm differ
 diff -up -N a/dwm.c b/dwm.c
 --- a/dwm.c	2020-12-03 09:59:28.269999652 +0100
 +++ b/dwm.c	2020-12-03 10:07:29.821925745 +0100
@@ -194,4 +193,3 @@ diff -up -N a/dwm.c b/dwm.c
  	setup();
  #ifdef __OpenBSD__
  	if (pledge("stdio rpath proc exec", NULL) == -1)
-Binary files a/dwm.o and b/dwm.o differ
